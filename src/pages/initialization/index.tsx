@@ -84,7 +84,7 @@ const Initialization = () => {
       content: (
         <div className={styles.top} style={{ marginTop: 100 }}>
           <div className={styles.header}>
-            <span className={styles.title}>欢迎使用青龙控制面板</span>
+            <span className={styles.title}>歡迎使用青龍控制面板</span>
           </div>
           <div className={styles.action}>
             <Button
@@ -93,7 +93,7 @@ const Initialization = () => {
                 next();
               }}
             >
-              开始安装
+              開始安裝
             </Button>
           </div>
         </div>
