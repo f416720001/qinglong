@@ -100,18 +100,18 @@ const Initialization = () => {
       ),
     },
     {
-      title: '通知设置',
+      title: '通知設定',
       content: (
         <Form onFinish={submitNotification} layout="vertical">
           <Form.Item
             label="通知方式"
             name="type"
-            rules={[{ required: true, message: '请选择通知方式' }]}
+            rules={[{ required: true, message: '請選擇通知方式' }]}
             style={{ maxWidth: 350 }}
           >
             <Select
               onChange={notificationModeChange}
-              placeholder="请选择通知方式"
+              placeholder="請選擇通知方式"
             >
               {config.notificationModes
                 .filter((x) => x.value !== 'closed')
@@ -130,49 +130,49 @@ const Initialization = () => {
             >
               <Input.TextArea
                 autoSize={true}
-                placeholder={`请输入${x.label}`}
+                placeholder={`請輸入${x.label}`}
               />
             </Form.Item>
           ))}
           <Button type="primary" htmlType="submit" loading={loading}>
-            保存
+            儲存
           </Button>
           <Button type="link" htmlType="button" onClick={() => next()}>
-            跳过
+            Skip
           </Button>
         </Form>
       ),
     },
     {
-      title: '账户设置',
+      title: '帳號設定',
       content: (
         <Form onFinish={submitAccountSetting} layout="vertical">
           <Form.Item
-            label="用户名"
+            label="帳號名稱"
             name="username"
             rules={[{ required: true }]}
             style={{ maxWidth: 350 }}
           >
-            <Input placeholder="用户名" />
+            <Input placeholder="帳號名稱" />
           </Form.Item>
           <Form.Item
-            label="密码"
+            label="密碼"
             name="password"
             rules={[
               { required: true },
               {
                 pattern: /^(?!admin$).*$/,
-                message: '密码不能为admin',
+                message: '密碼不能為admin',
               },
             ]}
             hasFeedback
             style={{ maxWidth: 350 }}
           >
-            <Input type="password" placeholder="密码" />
+            <Input type="password" placeholder="密碼" />
           </Form.Item>
           <Form.Item
             name="confirm"
-            label="确认密码"
+            label="確認密碼"
             dependencies={['password']}
             hasFeedback
             style={{ maxWidth: 350 }}
@@ -185,15 +185,15 @@ const Initialization = () => {
                   if (!value || getFieldValue('password') === value) {
                     return Promise.resolve();
                   }
-                  return Promise.reject(new Error('您输入的两个密码不匹配！'));
+                  return Promise.reject(new Error('您輸入的兩個密碼不一致！'));
                 },
               }),
             ]}
           >
-            <Input.Password placeholder="确认密码" />
+            <Input.Password placeholder="確認密碼" />
           </Form.Item>
           <Button type="primary" htmlType="submit" loading={loading}>
-            提交
+            送出
           </Button>
         </Form>
       ),
@@ -208,7 +208,7 @@ const Initialization = () => {
               Github
             </Link>
             <Link href="https://t.me/jiao_long" target="_blank">
-              Telegram频道
+              Telegram頻道
             </Link>
           </div>
           <div style={{ marginTop: 16 }}>
@@ -218,7 +218,7 @@ const Initialization = () => {
                 history.push('/login');
               }}
             >
-              去登录
+              登入
             </Button>
           </div>
         </div>
@@ -235,7 +235,7 @@ const Initialization = () => {
             className={styles.logo}
             src="https://img.gejiba.com/images/a3f551e09ac19add4c49ec16228729c5.png"
           />
-          <span className={styles.title}>初始化配置</span>
+          <span className={styles.title}>初始化設定</span>
         </div>
       </div>
       <div className={styles.main}>

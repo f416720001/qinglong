@@ -1,5 +1,5 @@
 FROM node:alpine
-ARG QL_MAINTAINER="whyour"
+ARG QL_MAINTAINER="f416720001"
 LABEL maintainer="${QL_MAINTAINER}"
 
 ENV PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin \
@@ -7,10 +7,7 @@ ENV PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin \
     SHELL=/bin/bash \
     PS1="\u@\h:\w \$ "
 
-COPY package.json /
-
 RUN set -x \
-    && sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories \
     && apk update -f \
     && apk upgrade \
     && apk --no-cache add -f bash \
@@ -31,11 +28,11 @@ RUN set -x \
                              g++ \
                              make \
     && rm -rf /var/cache/apk/* \
-    && ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
-    && echo "Asia/Shanghai" > /etc/timezone \
+    && ln -sf /usr/share/zoneinfo/Asia/Taipei /etc/localtime \
+    && echo "Asia/Taipei" > /etc/timezone \
     && touch ~/.bashrc \
-    && git config --global user.email "qinglong@@users.noreply.github.com" \
-    && git config --global user.name "qinglong" \
+    && git config --global user.email "f416720001@yahoo.com.tw" \
+    && git config --global user.name "f416720001" \
     && npm install -g pnpm \
     && pnpm install -g pm2 \
     && pnpm install -g ts-node typescript tslib \
@@ -44,6 +41,5 @@ RUN set -x \
     && rm -rf /root/.npm \
     && rm -rf /root/.pnpm-store \
     && rm -rf /root/.cache \
-    && rm -f /package.json
 
 CMD [ "node" ]

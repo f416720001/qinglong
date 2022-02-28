@@ -1,7 +1,10 @@
-version: '2'
+version: '3.1'
 services:
   web:
-    image: whyour/qinglong:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: panel_webclient
     volumes:
       - ./data:/ql/data
     ports:
